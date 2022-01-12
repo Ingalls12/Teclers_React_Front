@@ -11,10 +11,11 @@ export default function LogInMain(){
                         <h1>Teclers</h1>
                         <h2> Nuestra red social para conectarse con profesores y compañeros de clases.</h2>
                     </div>
+                    <LogInForm/>
+                    <RegisterForm/>
                 </div>
             </div>
-        <LogInForm/>
-        <RegisterForm/>
+        
         </>
     )
 }
