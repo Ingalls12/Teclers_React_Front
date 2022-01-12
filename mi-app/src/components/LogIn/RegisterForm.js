@@ -96,7 +96,7 @@ export default function RegisterForm() {
               </div>
               <div className="col-md-6">
                 <label htmlFor="inputNewEmail" className="form-label">
-                  Correo electrónico
+                  Correo electrónico o Usuario
                 </label>
                 <input
                   type="email"
