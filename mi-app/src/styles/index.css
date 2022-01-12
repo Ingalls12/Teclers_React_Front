@@ -1,0 +1,54 @@
+nav {
+    background-color: #A070B7;
+    margin: 10px 10px;
+
+}
+#pefil{
+    position: relative;
+    top: 5px;
+    right: 100px;
+}
+.card {
+    background-color: #A070B7;
+    border: -10px;
+}
+.card-body, .card-header{
+    background-color:white;
+}
+.foto-perfil img{
+    width: 60px;
+    height: 60px;
+}
+.foto-perfil img:hover{
+    width: 61px;
+    height: 61px;
+}
+.recientes .card-header{
+    background-color: #46D1E4;
+}
+.recientes{
+    position: fixed;
+    top:75px;
+    right: 10px;
+}
+.btn{
+    background-color: #46D1E4;
+}
+.hamburguesa{
+    display: flex;
+    align-content: center;
+    position: absolute;
+    right: 30px;
+}
+.msg{
+    background-color: #46D1E4;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    border: #A070B7 solid 0.5px;
+}
+.msg img{
+    
+    width: 50px;
+    height: 50px;
+}

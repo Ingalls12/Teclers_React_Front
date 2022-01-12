@@ -1,0 +1,41 @@
+body {
+    background-color: #46D1E4;
+}
+
+nav {
+    background-color: #A070B7;
+    margin: 10px 10px;
+
+}
+.card {
+    background-color: #A070B7;
+    border: -10px;
+}
+.card-body, .card-header{
+    background-color:white;
+}
+.foto-perfil img{
+    width: 60px;
+    height: 60px;
+}
+
+.recientes .card-header{
+    background-color: #46D1E4;
+}
+.recientes{
+    position: fixed;
+    top:75px;
+    right: 10px;
+}
+button#search{
+    background-color:  white ;
+    color: black;
+}
+.hamburguesa{
+    display: flex;
+    align-content: center;
+}
+
+h1 {
+    color:yellow;
+}
