@@ -44,7 +44,7 @@ export default function RegisterForm() {
     <div
       className="modal fade"
       id="modal"
-      tabindex="-1"
+      tabIndex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="false"
     >
