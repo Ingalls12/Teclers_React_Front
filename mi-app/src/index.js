@@ -9,6 +9,7 @@ import {
 
 import LogIn from "./LogIn"
 import PagPrincipal from "./PagPrincipal"
+import Perfil from "./Perfil"
 
 
 ReactDOM.render(
@@ -16,8 +17,10 @@ ReactDOM.render(
    <Routes>
      <Route path="/" element={<LogIn/>} exact/>
      <Route path="/PagPrincipal" element={<PagPrincipal/>}/>
+     <Route path="/Perfil" element={<Perfil/>}/>
    </Routes>
   </BrowserRouter>
  , document.getElementById('root')
 );
 
+document.body.style.backgroundColor="#46D1E4"
