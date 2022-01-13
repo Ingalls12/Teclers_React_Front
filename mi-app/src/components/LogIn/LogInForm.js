@@ -1,5 +1,7 @@
 import React, {useState,useEffect} from "react"
+import { useNavigate } from "react-router-dom";
 export default function LogInForm(){
+    const navigate = useNavigate()
     const [formInicio, setFormInicio] = useState(
         {
             correo: "",
@@ -19,7 +21,6 @@ export default function LogInForm(){
         if (formInicio.correo===""||formInicio.contraseña===""){
             console.log("Por favor llena los campos")
         }else{
-            console.log("Inicio de sesión exitoso")
             let usuario = formInicio.correo
             let contrasena = formInicio.contraseña
             try {
@@ -35,8 +36,11 @@ export default function LogInForm(){
             
             
             if (respuesta.token){
+                console.log("Inicio de sesión exitoso")
                 console.log("se guardo el token")
                 localStorage.setItem('token', respuesta.token);
+                handleEnd()
+                
             } 
             } catch(e) {
             console.error(e);   
@@ -45,11 +49,15 @@ export default function LogInForm(){
             }
 
     }
-    
+    function handleEnd(){
+        if(localStorage.token){
+            navigate("/PagPrincipal")
+        }
+    }
 
     
     return(
-        <form className="col-lg-6" id="main_form" onSubmit={handleSubmit}>
+        <form className="col-lg-6" id="main_form" onSubmit={handleSubmit} >
           <div className="card">
             <h3 className="card-title">Iniciar sesión o crea una nueva cuenta</h3>
             <div className="form-floating">
@@ -61,6 +69,7 @@ export default function LogInForm(){
               <label htmlFor="password">Contraseña</label>
             </div>
             <button className="btn btn-primary col-4 mx-auto" type="submit" >Iniciar sesión</button>
+            
             
             <button type="button" className="btn btn-primary col-4 mx-auto" data-bs-toggle="modal" data-bs-target="#modal"
               id="sign_up">Crear una nueva cuenta</button>
