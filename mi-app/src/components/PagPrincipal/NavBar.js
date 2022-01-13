@@ -1,12 +1,12 @@
 import React from "react";
-export default function Navbar(){
+export default function Navbar({logo}){
     return(
         <nav className ="navbar navbar-light sticky-top">
         <div className ="container-fluid  d-flex justify-content-between">
             <div className ="row">
                 <div className ="logo col-4">
                     <a className ="navbar-brand" href="#">
-                        <img src="../img/tecla.jpg" alt="" width="40" height="40" className ="d-inline-block align-text-center rounded-circle"/>
+                        <img src={logo} alt="" width="40" height="40" className ="d-inline-block align-text-center rounded-circle"/>
                         Teclers
                     </a>
                 </div>
