@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-
+import { useNavigate } from "react-router-dom";
 export default function RegisterForm() {
+  const navigate = useNavigate()
   const [formRegister, setFormRegister] = useState({
     nombre: "",
     apellidos: "",
@@ -11,12 +12,11 @@ export default function RegisterForm() {
     condiciones: false,
   });
 
-  function handleSubmit(event) {
+  async function handleSubmit(event) {
     event.preventDefault();
     //Verifico que todos los campos de mi formulario
     for (const prop in formRegister){
       let valorProp = formRegister[prop]
-      console.log(formRegister)
       if(valorProp===null || valorProp===""){
         alert("Porfavor llena todos los campos")
         return false
@@ -31,7 +31,7 @@ export default function RegisterForm() {
       alert("Acepta las condiciones para continuar")
       return false
     }
-    fetch(`http://localhost:8080/crear_usuarios`, {
+    const res = await fetch(`http://localhost:8080/crear_usuarios`, {
                     method: "POST", 
                     headers: {
                     "Content-Type": "application/json"
@@ -46,7 +46,11 @@ export default function RegisterForm() {
                     }),
                     mode: 'cors' 
                 })
-                .then(res=>res.json())
+      const respuesta = await res.json()
+      console.log(respuesta)
+      localStorage.setItem('token', respuesta.token)
+      navigate("/PagPrincipal")
+                
   }
   function handleChange(event){
     let {name,type,value,checked} = event.target;
