@@ -9,7 +9,7 @@ export default function Header(props){
             <nav className ="navbar navbar-expand-lg navbar-dark" style={estilo}>
                 <div className ="container-fluid justify-content-center">
                     <a className ="navbar-brand" href="#">
-                        <img src="../img/tecla.jpg" alt="" width="40" height="40" className ="d-inline-block rounded-circle justify-content-center"/>
+                        <img src={props.logo} alt="" width="40" height="40" className ="d-inline-block rounded-circle justify-content-center"/>
                         Teclers
                     </a>
                 </div>
