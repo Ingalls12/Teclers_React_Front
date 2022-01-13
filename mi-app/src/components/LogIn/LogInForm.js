@@ -24,26 +24,28 @@ export default function LogInForm(){
             let usuario = formInicio.correo
             let contrasena = formInicio.contraseña
             try {
-            const res = await fetch(`http://localhost:3000/autenticar`, {
-                method: "POST", 
-                headers: {
-                "Content-Type": "application/json"
-                },
-                body: JSON.stringify({usuario: usuario, contrasena: contrasena}),
-                mode: 'cors' 
-            });
-            const respuesta = await res.json(); // tomo el JSON de la respuesta http
-            
-            
-            if (respuesta.token){
-                console.log("Inicio de sesión exitoso")
-                console.log("se guardo el token")
-                localStorage.setItem('token', respuesta.token);
-                handleEnd()
+                const res = await fetch(`http://localhost:8080/autenticar`, {
+                    method: "POST", 
+                    headers: {
+                    "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({usuario: usuario, contrasena: contrasena}),
+                    mode: 'cors' 
+                });
+                const respuesta = await res.json(); // tomo el JSON de la respuesta http
                 
-            } 
+                
+                if (respuesta.token){
+                    console.log("Inicio de sesión exitoso")
+                    console.log("se guardo el token")
+                    localStorage.setItem('token', respuesta.token);
+                    handleEnd()
+                    
+                }else{
+                    alert("Por favor ingresa un usuario valido")
+                }
             } catch(e) {
-            console.error(e);   
+                console.error(e);   
             }
                 
             }
