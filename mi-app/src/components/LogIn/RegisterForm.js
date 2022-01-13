@@ -31,7 +31,22 @@ export default function RegisterForm() {
       alert("Acepta las condiciones para continuar")
       return false
     }
-    
+    fetch(`http://localhost:8080/crear_usuarios`, {
+                    method: "POST", 
+                    headers: {
+                    "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({
+                      "Username":formRegister.email,
+                      "LastName":formRegister.apellidos,
+                      "FirstName":formRegister.nombre,
+                      "Password":formRegister.contraseña,
+                      "Country":formRegister.pais,
+                      "City":formRegister.ciudad
+                    }),
+                    mode: 'cors' 
+                })
+                .then(res=>res.json())
   }
   function handleChange(event){
     let {name,type,value,checked} = event.target;

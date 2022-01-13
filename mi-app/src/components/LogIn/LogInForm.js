@@ -1,4 +1,4 @@
-import React, {useState,useEffect} from "react"
+import React, {useState} from "react"
 import { useNavigate } from "react-router-dom";
 export default function LogInForm(){
     const navigate = useNavigate()
@@ -19,7 +19,7 @@ export default function LogInForm(){
     async function handleSubmit(event){
         event.preventDefault()
         if (formInicio.correo===""||formInicio.contraseña===""){
-            console.log("Por favor llena los campos")
+            alert("Porfavor llena todos los campos")
         }else{
             let usuario = formInicio.correo
             let contrasena = formInicio.contraseña
@@ -57,7 +57,7 @@ export default function LogInForm(){
         }
     }
 
-    
+
     return(
         <form className="col-lg-6" id="main_form" onSubmit={handleSubmit} >
           <div className="card">
