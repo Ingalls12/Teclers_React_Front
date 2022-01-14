@@ -1,10 +1,27 @@
-import React from "react";
+import React,{useState} from "react";
 import "bootstrap/dist/css/bootstrap.min.css"
 
 function Header({logo}){
     
     const estilo = {
         backgroundColor:"#A070B7"
+    }
+    const [buscador, setBuscador] = useState("")
+    function handleChange(event){
+        const {value} = event.target;
+        setBuscador(value)
+    }
+    async function handleSubmit(event){
+        event.preventDefault();
+        const res = await fetch(`http://localhost:8080/usuarios`, {
+                    method: "POST", 
+                    headers: {
+                    "Content-Type": "application/json"
+                    },
+                    body: JSON.stringify({FirstName:buscador}),
+                    mode: 'cors' 
+                });
+                const respuesta = await res.json(); 
     }
 
     return(
@@ -18,8 +35,8 @@ function Header({logo}){
                     </a>
                 </div>
                 <div className ="col-6">
-                    <form className ="d-flex">
-                        <input className ="form-control me-2" type="search" place-holder="Search" aria-label="Search"/>
+                    <form className ="d-flex"onSubmit={handleSubmit}>
+                        <input className ="form-control me-2" type="search" place-holder="Search" aria-label="Search" name="buscador"value={buscador} onChange={handleChange} />
                         <button className ="btn " type="submit">Search</button>
                     </form>
                 </div>
