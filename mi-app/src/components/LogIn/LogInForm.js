@@ -1,7 +1,10 @@
 import React, {useState} from "react"
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { login } from "../redux/usuarioActions";
 export default function LogInForm(){
-    const navigate = useNavigate()
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const [formInicio, setFormInicio] = useState(
         {
             correo: "",
@@ -39,6 +42,7 @@ export default function LogInForm(){
                     console.log("Inicio de sesión exitoso")
                     console.log("se guardo el token")
                     localStorage.setItem('token', respuesta.token);
+                    dispatch(login(respuesta.usuario));
                     handleEnd()
                     
                 }else{

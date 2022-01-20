@@ -26,10 +26,11 @@ export default function Publicacion(){
 
 
 import React from "react";
-
+import { useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
-
+import { logout } from "../redux/usuarioActions";
 function Publicacion({ texto_publicacion }) {
+  const dispatch = useDispatch();
 
   const [texto, setTexto] = useState("");
 
@@ -46,9 +47,9 @@ function Publicacion({ texto_publicacion }) {
   const handleSubmit =(e) => {
     e.preventDefault();
     setMostrar(false);
-
+   
     
-
+    dispatch(logout())
     if([texto].includes("")){
 
       window.alert("No puedes publicar un post en blanco");
