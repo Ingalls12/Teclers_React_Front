@@ -11,6 +11,7 @@ import store from './components/redux/store';
 import LogIn from "./LogIn"
 import PagPrincipal from "./PagPrincipal"
 import Perfil from "./Perfil"
+import AgregarAmigos from "./AgregarAmigos"
 
 
 ReactDOM.render(
@@ -20,6 +21,7 @@ ReactDOM.render(
       <Route path="/" element={<LogIn/>} exact/>
       <Route path="/PagPrincipal" element={<PagPrincipal/>}/>
       <Route path="/Perfil" element={<Perfil/>}/>
+      <Route path="/AgregarAmigos" element={<AgregarAmigos/>}/>
     </Routes>
     </BrowserRouter>
   </Provider>
