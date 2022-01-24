@@ -42,7 +42,10 @@ export default function LogInForm(){
                     console.log("Inicio de sesión exitoso")
                     console.log("se guardo el token")
                     localStorage.setItem('token', respuesta.token);
-                    dispatch(login(respuesta.usuario));
+                    localStorage.setItem('usuario',respuesta.usuario);
+                    localStorage.setItem("Id",respuesta.usuarioID);
+                    localStorage.setItem("Logged",respuesta.Logged);
+                    if(respuesta.usuario){dispatch(login(respuesta.usuario));}
                     handleEnd()
                     
                 }else{

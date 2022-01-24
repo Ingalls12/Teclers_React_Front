@@ -4,6 +4,7 @@ export default function usuarioReducer(state = {},action){
         case type.LOGIN:
             return action.payload;
         case type.LOGOUT:
+            localStorage.clear()
             return {};
         case type.UPDATE:
             return action.payload;

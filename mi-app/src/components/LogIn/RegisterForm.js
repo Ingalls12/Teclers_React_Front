@@ -47,8 +47,11 @@ export default function RegisterForm() {
                     mode: 'cors' 
                 })
       const respuesta = await res.json()
-      console.log(respuesta)
-      localStorage.setItem('token', respuesta.token)
+      console.log(respuesta);
+      localStorage.setItem('token', respuesta.token);
+      localStorage.setItem('usuario',respuesta.usuario);
+      localStorage.setItem("Id",respuesta.usuarioID);
+      localStorage.setItem("Logged",respuesta.Logged);
       navigate("/PagPrincipal")
                 
   }

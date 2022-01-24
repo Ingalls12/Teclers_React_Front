@@ -24,28 +24,34 @@ function Formulario({usuarios, setUsuarios, usuario, setUsuario}){
 
     //Use efect que escucha los cambios que suceden en usuario y que va a setear los valores del usuario
     useEffect(()=> {
-        if( Object.keys(usuario).length > 0) {
-            setNombre(usuario.nombre)
-            setApellido(usuario.apellido)
-            setPais(usuario.pais)
-            setCiudad(usuario.ciudad)
-            setEmail(usuario.email)
-            setNac(usuario.nac)
-            setCarrera(usuario.carrera)
-            setEspecialidad(usuario.hobbies)
-            setHobbies(usuario.carrera)
-            setIdiomas(usuario.idiomas)
-            setLinkedin(usuario.linkedin)
-            setConocimientos(usuario.conocimientos)
-            setCuentanos(usuario.cuentanos)
-            setFeedback(usuario.feedback)
-        }
-        fetch("")
+      
 
     },[usuario])
 
+    async function imagenes(file){
+        file = foto
+        console.log("se clickeo");
+        const cloudURL = 'https://api.cloudinary.com/v1_1/dpvabv6yz/upload';
+        const formData = new FormData();
+        formData.append('upload_preset','react-journal');
+        formData.append('file', file);
+        try{
+            const resp = await fetch(cloudURL,{
+                method:'POST',
+                body:formData
+            });
     
-
+            if(resp.ok){
+                const cloudResp = await resp.json();
+                return cloudResp.secure_url;
+            }else{
+                throw await resp.json();
+            }
+        }catch(e){
+            console.log(e);
+            throw e;
+        }
+    }
     //Generamos un ID único para el objetoUsuario que se creará
     const generarId = () => {
         const random = Math.random().toString(36).substring(2);
@@ -172,11 +178,12 @@ function Formulario({usuarios, setUsuarios, usuario, setUsuario}){
             <div>
 
 
-            <form name="foto" type="POST" encType="multipart/formdata">
+            <form name="foto" type="POST" encType="multipart/formdata" onSubmit={imagenes}>
                 <label htmlFor="foto" className="form-label">Tu foto de perfil </label>
-                <input type="file" name="foto" class="form-control" id="foto" aria-describedby="foto" placeholder="Foto"
+                <input type="file" name="foto" className ="form-control" id="foto" aria-describedby="foto" placeholder="Foto"
                 value={foto}
                 onChange={(e)=> setFoto(e.target.value)}
+                
                 />
             </form>
  
