@@ -15,10 +15,10 @@ export default function Navbar({logo}){
                     body: JSON.stringify({FirstName:buscador}),
                     mode: 'cors' 
                 });
-                const respuesta = await res.json(); 
+                const respuesta = await res.json();
     }
     return(
-        <nav className ="navbar navbar-light sticky-top">
+        <nav className ="navbar navbar-light sticky-top sidenav" data-mdb-right="true">
         <div className ="container-fluid  d-flex justify-content-between">
             <div className ="row">
                 <div className ="logo col-4">
@@ -45,6 +45,11 @@ export default function Navbar({logo}){
                   </button>
             </div>
         </div>
+        <div class="collapse" id="navbarToggleExternalContent">
+                <div>
+                <a class="sidenav-link" href="./perfil.html">Mi Perfil</a>
+                </div>
+            </div>
     </nav>
     )
 }

@@ -8,12 +8,19 @@ nav {
     top: 5px;
     right: 100px;
 }
+div.col-lg-6 h1{
+    color: #fefb03;
+}
 .card {
     background-color: #A070B7;
     border: -10px;
 }
 .card-body, .card-header{
     background-color:white;
+}
+.card-title {
+    text-align: center;
+    margin-top: 15px;
 }
 .foto-perfil img{
     width: 60px;
@@ -48,7 +55,20 @@ nav {
     border: #A070B7 solid 0.5px;
 }
 .msg img{
-    
     width: 50px;
     height: 50px;
+}
+a.sidenav-link{
+    outline: none;
+    text-decoration: none;
+}
+a.sidenav-link:link{
+    color: #000;
+}
+a.sidenav-link:visited{
+    color: #000;
+}
+a.sidenav-link:focus{
+    border-bottom: 1px solid;
+    background: #A070B7
 }

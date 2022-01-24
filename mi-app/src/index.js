@@ -28,4 +28,4 @@ ReactDOM.render(
  , document.getElementById('root')
 );
 
-document.body.style.backgroundColor="#46D1E4"
+document.body.style.backgroundColor="#78c8c9"
