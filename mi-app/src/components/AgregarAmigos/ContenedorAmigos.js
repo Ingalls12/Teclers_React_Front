@@ -1,26 +1,36 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import BuscarAmigos from "./BuscarAmigos";
 import AmigosRecientes from "./AmigosRecientes"
 import News from "./News"
-let datos = [] 
+import CardUsuario from "./CardUsuario"
+
 export default function ContenedorAmigos(props){
-    const amigos = datos.map(()=>{
-        <div className ="card">
-                <img src="../img/sonriendo_perfil.jpg" alt=""/>
-                <div className ="container">
-                        <h4 style="color: #fff;"><b>Erica Jones</b></h4>
-                        <p>@Erica_J</p>
-                        <button>Agregar</button>
-                </div>
-        </div>
+    const [usuarios,setUsuarios] = useState([])
+    useEffect(()=>{
+        let url = "http://localhost:8080/usuarios"
+        fetch(url)
+            .then(response=>response.json()
+            .then(data=>{
+                
+                setUsuarios(data.data)
+                
+            }))
+        
+    },[])
+
+    const amigos = usuarios.map(usuario=>{
+        return(
+            <CardUsuario key={usuario.UserID} FirstName={usuario.FirstName} Username={usuario.Username} />
+        )
     })
+    
     return(
        <main>
             <News/>
             <div className ="contenedor_amigos">
                 <BuscarAmigos />
                 <div className ="cards_amigos">
-                    
+                    {amigos}
                 </div>
             
             </div>
