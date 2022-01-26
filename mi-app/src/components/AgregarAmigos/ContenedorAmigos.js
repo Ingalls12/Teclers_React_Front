@@ -32,7 +32,7 @@ export default function ContenedorAmigos(props){
     })
     
     return(
-       <main>
+       <main className="principal">
             <News/>
             <div className ="contenedor_amigos">
                 <BuscarAmigos />

@@ -1,4 +1,4 @@
-main{
+main.principal{
     display: grid;
     grid-template-columns: 1fr 5fr 1fr;
     row-gap: 10px;
