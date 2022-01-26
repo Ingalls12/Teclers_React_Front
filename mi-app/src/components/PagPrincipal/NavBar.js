@@ -1,5 +1,7 @@
 import React,{useState} from "react";
+import { useNavigate } from "react-router-dom";
 export default function Navbar({logo}){
+    const navigate = useNavigate();
     const [buscador, setBuscador] = useState("")
     function handleChange(event){
         const {value} = event.target;
@@ -36,7 +38,7 @@ export default function Navbar({logo}){
                 
             </div>
             <div id="pefil">
-                <a href="./perfil.html"><img src="../img/perfil_2.jpg" alt="foto" className ="border 
+                <a onClick={()=>{navigate("/Perfil")}} ><img src="../img/perfil_2.jpg" alt="foto" className ="border 
                     border-secondary  border-3 rounded-circle" width="50px" height="50px"/> </a>
             </div>
             <div className ="col hamburguesa">
