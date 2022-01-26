@@ -95,7 +95,10 @@ function Publicacion({ texto_publicacion }) {
     setTexto("");*/
 
 }
-
+  //consiguiendo fecha actual
+  let fecha = new Date();
+  fecha = `${fecha.getFullYear()}-${fecha.getMonth()}-${fecha.getDate()}`
+  
   return (
 
     <div className="col-12 col-md-8 col-xl-8 contenido ">
