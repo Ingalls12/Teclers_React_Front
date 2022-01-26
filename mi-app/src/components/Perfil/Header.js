@@ -1,8 +1,9 @@
 import React,{useState} from "react";
+import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css"
 
 function Header({logo}){
-    
+    const navigate = useNavigate();
     const estilo = {
         backgroundColor:"#A070B7"
     }
@@ -29,7 +30,7 @@ function Header({logo}){
         <div className ="container-fluid  d-flex justify-content-between">
             <div className ="row">
                 <div className ="logo col-4">
-                    <a className ="navbar-brand" href="#">
+                    <a className ="navbar-brand" onClick={()=>{navigate("/PagPrincipal")}} >
                         <img src={logo} alt="" width="40" height="40" className ="d-inline-block align-text-center rounded-circle"/>
                         Teclers
                     </a>

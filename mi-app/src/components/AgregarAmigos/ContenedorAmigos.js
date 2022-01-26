@@ -5,20 +5,27 @@ import News from "./News"
 import CardUsuario from "./CardUsuario"
 
 export default function ContenedorAmigos(props){
-    const [usuarios,setUsuarios] = useState([])
+    const [usuarios,setUsuarios] = useState([]);
+    const [searchbar,setSearchbar] = useState("");
     useEffect(()=>{
         let url = "http://localhost:8080/usuarios"
         fetch(url)
             .then(response=>response.json()
             .then(data=>{
                 
-                setUsuarios(data.data)
+                setUsuarios(data.data);
                 
             }))
         
     },[])
 
-    const amigos = usuarios.map(usuario=>{
+    const amigos = usuarios.filter((usuario)=>{
+        if(searchbar == ""){
+            return usuario
+        }else if(usuario.FirstName.toLowerCase().includes(searchbar.toLowerCase())){
+            return usuario;
+        }
+    }).map(usuario=>{
         return(
             <CardUsuario key={usuario.UserID} FirstName={usuario.FirstName} Username={usuario.Username} />
         )

@@ -8,7 +8,7 @@ export default function PagPrincipal(){
     const navigate = useNavigate()
     useEffect(()=>{
         //modal-backdrop fade show"
-        let capa = document.querySelector(".modal-backdrop")
+        let capa = document.querySelector(".modal-backdrop .fade .show ")
         if(capa){
             capa.remove()
         }
