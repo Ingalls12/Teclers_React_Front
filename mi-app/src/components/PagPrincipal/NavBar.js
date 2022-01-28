@@ -10,8 +10,8 @@ export default function Navbar({logo}){
         const {value} = event.target;
         setBuscador(value)
     }
-    function logOut(){
-        dispath(logout)
+    function setLogOut(){
+        dispath(logout())
         navigate("/")
     }
     async function handleSubmit(event){
@@ -54,7 +54,7 @@ export default function Navbar({logo}){
                     border-secondary  border-3 rounded-circle" width="50px" height="50px"/> </a>
             </div>
             <div className ="col hamburguesa">
-            <a onClick={logOut} ><img src="../img/perfil_2.jpg" alt="salir" className ="border 
+            <a onClick={setLogOut} ><img src="../img/perfil_2.jpg" alt="salir" className ="border 
                     border-secondary  border-3 rounded-circle" width="50px" height="50px"/> </a>
             </div>
         </div>

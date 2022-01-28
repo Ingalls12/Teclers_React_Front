@@ -39,3 +39,7 @@ button#search{
 h1 {
     color:yellow;
 }
+
+.btn{
+    margin-top: 1rem;
+}
