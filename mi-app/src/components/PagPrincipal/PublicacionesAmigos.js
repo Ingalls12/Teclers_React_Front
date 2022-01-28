@@ -19,24 +19,7 @@ export default function PublicacionesAmigos(){
      },[])
     const publicaciones = datos_publicacion.map((item)=>{
         return(
-         
-                <PublicacionModelo key={item.PublicationId} FirstName={item.FirstName}Content={item.Content} PublicationDate={item.PublicationDate}/>
-            
-            /* <div className="publicacion">
-                <div class="card text-center">
-                    <div class="card-header">
-                        <image/>
-                        {item.FirstName}
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">{item.Content}</p>
-                        <a  class="btn btn-primary">Like</a>
-                    </div>
-                    <div class="card-footer text-muted">
-                        {item.PublicationDate}
-                    </div>
-                </div>
-            </div> */    
+            <PublicacionModelo key={item.PublicationId} FirstName={item.FirstName}Content={item.Content} PublicationDate={item.PublicationDate}/>
         )
     })
 

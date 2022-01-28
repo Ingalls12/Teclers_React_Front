@@ -1,11 +1,18 @@
 import React,{useState} from "react";
 import { useNavigate } from "react-router-dom";
+import { logout } from "../redux/usuarioActions";
+import { useDispatch } from "react-redux";
 export default function Navbar({logo}){
+    const dispath = useDispatch();
     const navigate = useNavigate();
     const [buscador, setBuscador] = useState("")
     function handleChange(event){
         const {value} = event.target;
         setBuscador(value)
+    }
+    function logOut(){
+        dispath(logout)
+        navigate("/")
     }
     async function handleSubmit(event){
         event.preventDefault();
@@ -38,13 +45,17 @@ export default function Navbar({logo}){
                 
             </div>
             <div id="pefil">
-                <a onClick={()=>{navigate("/Perfil")}} ><img src="../img/perfil_2.jpg" alt="foto" className ="border 
+               
+            </div>
+            <div id="pefil">
+                <a onClick={()=>{navigate("/AgregarAmigos")}} ><img src="" alt="amigos" className ="border 
+                    border-secondary  border-3 rounded-circle" width="50px" height="50px"/> </a>
+                <a onClick={()=>{navigate("/Perfil")}} ><img src="../img/perfil_2.jpg" alt="perfil" className ="border 
                     border-secondary  border-3 rounded-circle" width="50px" height="50px"/> </a>
             </div>
             <div className ="col hamburguesa">
-                <button className ="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className ="navbar-toggler-icon"></span>
-                  </button>
+            <a onClick={logOut} ><img src="../img/perfil_2.jpg" alt="salir" className ="border 
+                    border-secondary  border-3 rounded-circle" width="50px" height="50px"/> </a>
             </div>
         </div>
     </nav>

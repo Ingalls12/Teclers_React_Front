@@ -4,9 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css"
 
 function Header({logo}){
     const navigate = useNavigate();
-    const estilo = {
-        backgroundColor:"#A070B7"
-    }
+    
     const [buscador, setBuscador] = useState("")
     function handleChange(event){
         const {value} = event.target;
@@ -24,7 +22,6 @@ function Header({logo}){
                 });
                 const respuesta = await res.json(); 
     }
-
     return(
         <nav className ="navbar navbar-light sticky-top">
         <div className ="container-fluid  d-flex justify-content-between">

@@ -1,11 +1,13 @@
 import React from "react"
+import { useNavigate } from "react-router-dom";
 export default function NavBarAmigos(props){
+    const navigate = useNavigate();
     return(
         <nav className ="navbar navbar-light sticky-top">
             <div className ="container-fluid  d-flex justify-content-between">
                 <div className ="row">
                     <div className ="logo col-4">
-                        <a className ="navbar-brand" href="#">
+                        <a className ="navbar-brand" href="#" onClick={()=>{navigate("/PagPrincipal")}}>
                             <img src={props.logo} alt="" width="40" height="40" className ="d-inline-block align-text-center rounded-circle"/>
                             Teclers
                         </a>
@@ -19,8 +21,8 @@ export default function NavBarAmigos(props){
                     
                 </div>
                 <div id="pefil">
-                    <a href="./perfil.html"><img src="../img/perfil_2.jpg" alt="foto" className ="border 
-                        border-secondary  border-3 rounded-circle" width="50px" height="50px"/> </a>
+                    <a href="#"><img src="../img/perfil_2.jpg" alt="perfil" className ="border 
+                        border-secondary  border-3 rounded-circle" width="50px" height="50px" onClick={()=>{navigate("/Perfil")}}/> </a>
                 </div>
                 <div className ="col hamburguesa">
                     <button className ="navbar-toggler " type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
