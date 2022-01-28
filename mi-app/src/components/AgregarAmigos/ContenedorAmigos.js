@@ -39,7 +39,6 @@ export default function ContenedorAmigos(props){
                 <div className ="cards_amigos">
                     {amigos}
                 </div>
-            
             </div>
             <AmigosRecientes/>
        </main>

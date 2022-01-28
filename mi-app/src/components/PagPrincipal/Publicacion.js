@@ -8,35 +8,25 @@ export default function Publicacion({ texto_publicacion }) {
     texto_publicacion: "",
   });
   const [error, setError] = useState(false);
-  
-  useEffect(() => {
-    if (Object.keys(setTexto).length > 0) { setTexto(texto_publicacion.texto)}
-  },[texto_publicacion])
-
   const [mostrar, setMostrar] = useState(true)
 
   async function handleSubmit(e){
     e.preventDefault();
     setMostrar(false);
    
-    dispatch(logout())
-    if(publicaciones[texto_publicacion].includes("")){
-      window.alert("No puedes publicar un post en blanco");
-      setError(true);
-      return;
-    }
+   
 
     setError(false);
-
     const res = await fetch(`http://localhost:8080/publicaciones`,{
       method: "POST",
-      headers: { "Content-Type": "application/json"},
+      headers: { 'access-token':localStorage.getItem("token")},
       body: JSON.stringify({
+      "UserID":localStorage.getItem("Id"),
       "Content": publicaciones.texto_publicacion,
+      "PublicationDate": new Date()
     })})
 
 }
-
   return (
 
     <div className="col-12 col-md-8 col-xl-8 contenido ">
@@ -45,7 +35,7 @@ export default function Publicacion({ texto_publicacion }) {
           <div className="card-header d-flex">
             <ul className="nav nav-pills card-header-pills">
               <li className="nav-item">
-                <a className="card-image foto-perfil" href="#"><img src="../img/perfil_2.jpg" alt="foto" className="border 
+                <a className="card-image foto-perfil" ><img src="../img/perfil_2.jpg" alt="foto" className="border 
                                     border-secondary  border-3 rounded-circle"/></a>Que estas pensando el dia de hoy <span id="nombre"></span>?
               </li>
             </ul>
