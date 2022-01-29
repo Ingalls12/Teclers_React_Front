@@ -4,7 +4,7 @@ export default function CardUsuario(props){
     async function addAmigos(event){
         
         setSolicitud(valorAntiguo=>!valorAntiguo)
-        
+
     }
     return(
         <div className ="card">

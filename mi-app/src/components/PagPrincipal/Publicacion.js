@@ -15,16 +15,19 @@ export default function Publicacion({ texto_publicacion }) {
     setMostrar(false);
    
    
-
+    let fecha = new Date();
+    fecha = `${fecha.getFullYear()}-${fecha.getMonth()+1}-${fecha.getDate()}`
     setError(false);
     const res = await fetch(`http://localhost:8080/publicaciones`,{
       method: "POST",
-      headers: { 'access-token':localStorage.getItem("token")},
+      headers: { "Content-Type":"application/json",'access-token':localStorage.getItem("token")},
       body: JSON.stringify({
       "UserID":localStorage.getItem("Id"),
-      "Content": publicaciones.texto_publicacion,
-      "PublicationDate": new Date()
-    })})
+      "Content": publicaciones,
+      "PublicationDate": fecha
+    }),
+    mode: 'cors'
+  })
 
 }
   return (
